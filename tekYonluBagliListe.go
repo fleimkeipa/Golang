@@ -37,7 +37,7 @@ func (c *cins) turSil(gelenAd string) error {
 	gecici := c.turler
 	gecici2 := c.turler
 	if gecici == nil {
-		fmt.Println("ben aslinda yogum")
+		fmt.Println("ben aslinda yoğum")
 	} else {
 		if gecici.ad == gelenAd {
 			c.turler = c.turler.sonraki
@@ -70,13 +70,39 @@ func (c *cins) tumTurler() error {
 	return nil
 }
 
+func ekraniTemizle() {
+	cmd := exec.Command("cmd", "/c", "cls") //Windows example, its tested
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+}
+
 func main() {
 	cins1 := cinsOlustur("homo")
-	cins1.turEkle("sapiens")
-	cins1.turEkle("habilis")
-	cins1.turEkle("erectus")
-	cins1.tumTurler()
-	cins1.turSil("sapiens")
-	Println("-------------")
-	cins1.tumTurler()
+	okuyucu := bufio.NewReader(os.Stdin)
+	for true {
+		print("Ne yapmak istersiniz?\n Ekleme(E) Silme(S) Tüm Türler(T) Çıkış(C)\n Seçiminiz ")
+		secim, _ := okuyucu.ReadString('\n')
+		secim2 := strings.TrimSpace(secim)
+		if secim2 == "E" || secim2 == "e" {
+			ekraniTemizle()
+			print("eklemek istediğiniz türün adı ")
+			secim, _ = okuyucu.ReadString('\n')
+			cins1.turEkle(secim)
+			cins1.tumTurler()
+		} else if secim2 == "S" || secim2 == "s" {
+			ekraniTemizle()
+			print("silmek istediğiniz türün adı ")
+			secim, _ = okuyucu.ReadString('\n')
+			cins1.turSil(secim)
+			cins1.tumTurler()
+
+		} else if secim2 == "T" || secim2 == "t" {
+			ekraniTemizle()
+			cins1.tumTurler()
+		} else if secim2 == "C" || secim2 == "c" {
+			break
+		}
+	}
+
 }
+
