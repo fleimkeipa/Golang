@@ -59,12 +59,12 @@ func (c *cins) turSil(gelenAd string) error {
 func (c *cins) tumTurler() error {
 	gecici := c.turler
 	if gecici == nil {
-		Println("yoh yoh ha zorla mı getireyim kardeşim")
+		fmt.Println("yoh yoh ha zorla mı getireyim kardeşim")
 	} else {
 		fmt.Printf("%+v\n", *gecici)
 		for gecici.sonraki != nil {
 			gecici = gecici.sonraki
-			Printf("%+v\n", *gecici)
+			fmt.Printf("%+v\n", *gecici)
 		}
 	}
 	return nil
