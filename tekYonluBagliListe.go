@@ -59,12 +59,12 @@ func (c *cins) turSil(gelenAd string) error {
 func (c *cins) tumTurler() error {
 	gecici := c.turler
 	if gecici == nil {
-		fmt.Println("yoh yoh ha zorla mı getireyim kardeşim")
+		Println("yoh yoh ha zorla mı getireyim kardeşim")
 	} else {
 		fmt.Printf("%+v\n", *gecici)
 		for gecici.sonraki != nil {
 			gecici = gecici.sonraki
-			fmt.Printf("%+v\n", *gecici)
+			Printf("%+v\n", *gecici)
 		}
 	}
 	return nil
@@ -77,6 +77,6 @@ func main() {
 	cins1.turEkle("erectus")
 	cins1.tumTurler()
 	cins1.turSil("sapiens")
-	fmt.Println("-------------")
+	Println("-------------")
 	cins1.tumTurler()
 }
