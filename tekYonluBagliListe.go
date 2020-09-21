@@ -78,31 +78,28 @@ func ekraniTemizle() {
 
 func main() {
 	cins1 := cinsOlustur("homo")
-	okuyucu := bufio.NewReader(os.Stdin)
-	for true {
+	for {
 		print("Ne yapmak istersiniz?\n Ekleme(E) Silme(S) Tüm Türler(T) Çıkış(C)\n Seçiminiz ")
-		secim, _ := okuyucu.ReadString('\n')
-		secim2 := strings.TrimSpace(secim)
-		if secim2 == "E" || secim2 == "e" {
+		secim := ""
+		fmt.Scanln(&secim)
+		if secim == "E" || secim == "e" {
 			ekraniTemizle()
 			print("eklemek istediğiniz türün adı ")
-			secim, _ = okuyucu.ReadString('\n')
+			fmt.Scanln(&secim)
 			cins1.turEkle(secim)
 			cins1.tumTurler()
-		} else if secim2 == "S" || secim2 == "s" {
+		} else if secim == "S" || secim == "s" {
 			ekraniTemizle()
 			print("silmek istediğiniz türün adı ")
-			secim, _ = okuyucu.ReadString('\n')
+			fmt.Scanln(&secim)
 			cins1.turSil(secim)
 			cins1.tumTurler()
-
-		} else if secim2 == "T" || secim2 == "t" {
+		} else if secim == "T" || secim == "t" {
 			ekraniTemizle()
 			cins1.tumTurler()
-		} else if secim2 == "C" || secim2 == "c" {
+		} else if secim == "C" || secim == "c" {
 			break
 		}
-	}
 
 }
 
