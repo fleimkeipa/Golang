@@ -37,7 +37,7 @@ func (c *cins) turSil(gelenAd string) error {
 	gecici := c.turler
 	gecici2 := c.turler
 	if gecici == nil {
-		fmt.Println("ben aslinda yoğum")
+		fmt.Println("bos deger atamasi.")
 	} else {
 		if gecici.ad == gelenAd {
 			c.turler = c.turler.sonraki
