@@ -59,7 +59,7 @@ func (c *cins) turSil(gelenAd string) error {
 func (c *cins) tumTurler() error {
 	gecici := c.turler
 	if gecici == nil {
-		fmt.Println("yoh yoh ha zorla mı getireyim kardeşim")
+		fmt.Println("herhangi bir sey bulunamadi.")
 	} else {
 		fmt.Printf("%+v\n", *gecici)
 		for gecici.sonraki != nil {
