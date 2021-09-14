@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"os/exec"
+)
 
 type tur struct {
 	ad      string
@@ -100,6 +104,6 @@ func main() {
 		} else if secim == "C" || secim == "c" {
 			break
 		}
+	}
 
 }
-
